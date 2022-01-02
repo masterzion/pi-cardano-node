@@ -2,7 +2,14 @@
 
 # pi-cardano-node
 
-Script to build and create a cardano running on a raspberry pi.
+This script will help you to build and create the cardano binary files which run on a raspberry pi 4.
+
+Even though i am leaving the binaries files here:
+
+https://github.com/masterzion/pi-cardano-node/tree/main/builded-files
+
+I always recommend to build your own version to avoid some risk.
+Feel free to check and improve the scripts. It's all open source.
 
 # Required:
  - Raspberry 4 8GB (It requires 8GB to build)
@@ -19,7 +26,7 @@ https://ubuntu.com/download/raspberry-pi/thank-you?version=20.04.3&architecture=
 
 
 Version:
- ```
+ ```bash
  uname -a
  Linux ubuntu 5.4.0-1042-raspi #46-Ubuntu SMP PREEMPT Fri Jul 30 00:35:40 UTC 2021 aarch64 aarch64 aarch64 GNU/Linux
  ```
@@ -31,11 +38,6 @@ Only compatible with linux arm64! It wont work with raspian armv7. You will have
 "Error: selected processor does not support `movw r3,:lower16:c4qi_info$def' in ARM mode")
 ```
 
-Note:
-
-The binary version is also available on https://github.com/masterzion/pi-cardano-node/tree/main/builded-files
-
-
 # How to
 
 1) Write the image and connect your SSD
@@ -44,19 +46,19 @@ https://www.raspberrypi.com/documentation/computers/getting-started.html
 
 
 2) connect to your raspberry pi (the default pwd is ubuntu)
-```
+```bash
 ssh ubuntu@UBUNTU_IP_ADDR
 ```
 
 3) Clone this repo
 
-```
+```bash
 git clone https://github.com/masterzion/pi-cardano-node.git
 ```
 
 3) Prepare the linux, install dependences, create a cardano user
 (requires sudo). At the end set the password for the user cardano
-```
+```bash
 cd pi-cardano-node
 ls
 sudo ./cardano-prepare-linux.sh
@@ -64,7 +66,7 @@ sudo ./cardano-prepare-linux.sh
 
 4) The previous script will already leave you logged in with the cardano user... run the build script (already in cardano home dir)
 
-```
+```bash
 ./cardano-build.sh
 ```
 
@@ -73,7 +75,7 @@ sudo ./cardano-prepare-linux.sh
 6) At the binary files will be present on ~/.local/bin/
 
 Files:
-```
+```bash
 cardano@ubuntu:~/cardano-node$ ls -lah ~/.local/bin/
 total 403M
 drwxrwxr-x 2 cardano cardano 4.0K Jan  2 21:14 .
@@ -87,12 +89,11 @@ cardano@ubuntu:~/cardano-node$
 
 8) If you want to build again or do some changes, login with the cardano user and set the build environment
 
-```
+```bash
 source ~/.ghcup/env
 ```
 
-Ref:
+Based on the link bellow.
+Additional fixes and dependencies were added to make it work with the latest version.
 
 https://cardano-node-installation.stakepool247.eu/cardano-node-prerequisites
-
-(Additional fixes and dependencies were added to make it work)
