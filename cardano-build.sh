@@ -35,8 +35,6 @@ echo PATH="$PATH:$HOME/.local/bin/" >> $HOME/.bashrc
 source ~/.bashrc
 
 export BOOTSTRAP_HASKELL_NONINTERACTIVE=1
-
-
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 
 source ~/.ghcup/env
@@ -70,5 +68,3 @@ cabal build all
 
 cp -p $(find ./dist-newstyle/build/ -type f -name "cardano-node") ~/.local/bin/
 cp -p $(find ./dist-newstyle/build/ -type f -name "cardano-cli") ~/.local/bin/
-
-source ~/.bashrc

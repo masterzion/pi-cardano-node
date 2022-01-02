@@ -85,9 +85,11 @@ cardano@ubuntu:~/cardano-node$
 
 7) Enjoy. :)
 
+8) If you want to build again or do some changes, login with the cardano user and set the build environment
 
-
-
+```
+source ~/.ghcup/env
+```
 
 Ref:
 
