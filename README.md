@@ -31,6 +31,11 @@ Only compatible with linux arm64! It wont work with raspian armv7. You will have
 "Error: selected processor does not support `movw r3,:lower16:c4qi_info$def' in ARM mode")
 ```
 
+Note:
+
+The binary version is also available on https://github.com/masterzion/pi-cardano-node/tree/main/builded-files
+
+
 # How to
 
 1) Write the image and connect your SSD
@@ -81,4 +86,11 @@ cardano@ubuntu:~/cardano-node$
 7) Enjoy. :)
 
 
-ref: https://cardano-node-installation.stakepool247.eu/cardano-node-prerequisites
+
+
+
+Ref:
+
+https://cardano-node-installation.stakepool247.eu/cardano-node-prerequisites
+
+(Additional fixes and dependencies were added to make it work)
