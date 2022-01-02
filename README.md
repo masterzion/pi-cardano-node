@@ -1,4 +1,4 @@
-![pi-cardano-node logo](https://raw.githubusercontent.com/masterzion/pi-cardano-node/master/imgs/logo.png)
+![pi-cardano-node logo](https://github.com/masterzion/pi-cardano-node/blob/main/imgs/logo.png?raw=true)
 
 # pi-cardano-node
 
@@ -7,7 +7,7 @@ Script to build and create a cardano running on a raspberry pi.
 # Required:
  - Raspberry 4 8GB (It requires 8GB to build)
 
-![Build memory usage](https://raw.githubusercontent.com/masterzion/pi-cardano-node/master/imgs/memory.png)
+![Build memory usage](https://github.com/masterzion/pi-cardano-node/blob/main/imgs/memory.png?raw=true)
 
  - Ubuntu arm64 (ubuntu-20.04.3-preinstalled-server-arm64+raspi.img)
 
