@@ -13,6 +13,7 @@
 # uname -a
 # Linux raspberrypi 5.10.63-v7l+ #1459 SMP Wed Oct 6 16:41:57 BST 2021 armv7l GNU/Linux
 
+BEGIN=$(date)
 
 export GHC_VERSION=8.10.4
 export CABAL_VERSION=3.4.0.0
@@ -55,8 +56,6 @@ cd cardano-node
 git fetch --all --recurse-submodules --tags
 git checkout $(curl -s https://api.github.com/repos/input-output-hk/cardano-node/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
 
-cabal configure --with-compiler=ghc-$GHC_VERSION
-
 echo "package cardano-crypto-praos" >> cabal.project.local
 echo "  flags: -external-libsodium-vrf" >> cabal.project.local
 
@@ -64,7 +63,28 @@ echo "package trace-dispatcher" >> cabal.project.local
 echo "  ghc-options: -Wwarn" >> cabal.project.local
 echo "" >> cabal.project.local
 
+cabal configure --with-compiler=ghc-$GHC_VERSION
+
 cabal build all
 
 cp -p $(find ./dist-newstyle/build/ -type f -name "cardano-node") ~/.local/bin/
 cp -p $(find ./dist-newstyle/build/ -type f -name "cardano-cli") ~/.local/bin/
+
+
+cardano-node --version
+cardano-cli  --version
+
+cd ~/.local/bin
+mkdir -p cardano
+cd cardano
+cp ../cardano-cli ./
+cp ../cardano-node ./
+cd ..
+tar -zcvf cardano.tar.gz cardano/
+rm -rf cardano
+mv cardano.tar.gz ../../
+cd
+ls
+END=$(date)
+
+echo "BEGIN: $BEGIN  --- END: $END"
